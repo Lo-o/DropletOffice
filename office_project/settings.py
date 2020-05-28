@@ -39,6 +39,7 @@ CORS_ORIGIN_WHITELIST = ("http://localhost:3000",)
 INSTALLED_APPS = [
     "rest_framework",
     "questions.apps.QuestionsConfig",
+    "questions",
     "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",

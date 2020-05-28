@@ -27,5 +27,12 @@ router.register(r"triviaquestions", views.TriviaQuestionViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("current_datetime/", views.current_datetime, name="datetime"),
-    path("", include(router.urls)),
+    path("^about/", include(about)),
 ]
+
+
+from django.http import HttpResponse
+
+
+def about(request):
+    return HttpResponse("about")
