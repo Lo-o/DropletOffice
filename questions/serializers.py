@@ -4,7 +4,7 @@ from rest_framework import serializers
 from .models import TriviaQuestion
 
 
-class TriviaQuesstionSerializer(serializers.Serializer):
+class TriviaQuestionSerializer(serializers.Serializer):
     question = serializers.CharField(max_length=500)
     options = serializers.ListField(child=serializers.CharField())
 
