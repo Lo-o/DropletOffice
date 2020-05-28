@@ -4,9 +4,10 @@ from rest_framework import serializers
 from .models import TriviaQuestion
 
 
-class TriviaQuesstionSerializer(serializers.HyperlinkedModelSerializer):
+class TriviaQuesstionSerializer(serializers.Serializer):
+    question = serializers.ChaField(max_length=500)
+    options = serializers.ListField(child=serializers.CharField())
+
     class Meta:
-        model = TriviaQuestionSerializer
-        fields = ('created', 'question', 'options')
-
-
+        model = TriviaQuestion
+        fields = ("question", "options")
