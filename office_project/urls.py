@@ -19,12 +19,12 @@ from rest_framework import routers
 from questions import views
 
 router = routers.DefaultRouter()
-router.register(r"TriviaQuestions", views.TriviaQuestionViewSet)
+router.register(r"triviaquestions", views.TriviaQuestionViewSet)
+
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("^service/", include(router.urls)),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path("", include(router.urls)),
 ]

@@ -11,7 +11,7 @@ from .models import TriviaQuestion
 from .serializers import TriviaQuestionSerializer
 
 
-class TriviaQuestionViewSet(viewsets.ModelViewSet):
+class TriviaQuestionViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows trivia questions to be viewed or edited.
     """
