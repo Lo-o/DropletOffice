@@ -1,0 +1,25 @@
+https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-18-04-server#step-2-%E2%80%94-setting-up-a-virtual-environment:
+'To use this environment, you need to activate it, which you can achieve by typing the following command that calls the activate script:
+
+source my_env/bin/activate
+
+==> 'source office_project_env/bin/activate'
+'
+
+
+pip installed
+	- django
+	- djangorestframework
+	- django-rest-knox
+
+
+
+https://www.youtube.com/watch?v=Uyei2iDA4Hs&t=904s
+steps to take:
+- source office_project_env/bin/activate
+- django-admin startproject leadmanager
+- cd ./leadmanager
+- python manage.py startapp leads
+=> creat model Lead(name, email, message, created_at) in leads/migration/models.py
+- python manage.py makemigrations leads
+- python manage.py migrate => to actually add it to the database
