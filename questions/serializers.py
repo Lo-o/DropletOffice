@@ -5,7 +5,7 @@ from .models import TriviaQuestion
 
 
 class TriviaQuesstionSerializer(serializers.Serializer):
-    question = serializers.ChaField(max_length=500)
+    question = serializers.CharField(max_length=500)
     options = serializers.ListField(child=serializers.CharField())
 
     class Meta:
