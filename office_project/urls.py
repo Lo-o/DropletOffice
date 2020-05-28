@@ -26,5 +26,6 @@ router.register(r"triviaquestions", views.TriviaQuestionViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("current_datetime/", views.current_datetime, name="datetime"),
     path("", include(router.urls)),
 ]
