@@ -83,3 +83,10 @@ apt install unzip
 # TODO - unsure how to install to user's space
 # curl -fsSL https://deno.land/x/install/install.sh | sh
 
+# Manually add the directory to your $HOME/.bash_profile (or similar)
+#   export DENO_INSTALL="/home/admin/.deno"
+#   export PATH="$DENO_INSTALL/bin:$PATH"
+
+# Save the file and load the new $PATH into the current shell session using the source command:
+# source ~/.bashrc
+
