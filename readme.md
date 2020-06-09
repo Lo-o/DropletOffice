@@ -1,6 +1,6 @@
 Run 'denon start'
 
-Also possible to use 'deno run --allow-env --allow-net server.ts'
+Also possible to use 'deno run --allow-env --allow-net --allow-read server.ts'
 
 
 ## credentials json
