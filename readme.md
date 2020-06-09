@@ -1,5 +1,5 @@
-(vps) run               'deno run --allow-env --allow-net --allow-read server.ts'  
-(development using denon)     'denon start'
+(vps) run               **'deno run --allow-env --allow-net --allow-read server.ts'**  
+(development using denon)     **'denon start'**
 
 Run 'denon start'
 
