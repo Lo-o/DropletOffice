@@ -4,7 +4,8 @@ Also possible to use 'deno run --allow-env --allow-net server.ts'
 
 
 ## credentials json
-Fill in the credentials json first to get a working link with the postgres database 
+First create a  credentials.json to get a working link with the postgres database.
+Use the credentialsBoilerplate.json file for setup. 
 
 
 
