@@ -1,7 +1,7 @@
 const dbCreds = {
   user: "officeAdmin",
   database: "OfficeTrivia",
-  password: "candlelight",
+  password: "",
   hostname: "localhost",
   port: 5432,
 };
