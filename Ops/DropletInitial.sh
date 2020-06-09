@@ -90,3 +90,4 @@ apt install unzip
 # Save the file and load the new $PATH into the current shell session using the source command:
 # source ~/.bashrc
 
+# apt install git
