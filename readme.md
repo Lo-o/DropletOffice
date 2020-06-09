@@ -7,7 +7,7 @@ Also possible to use 'deno run --allow-env --allow-net server.ts'
 create a config.ts file with the following contents:
 const dbCreds = {  
   user: "FILL IN (deno/officeadmin)",  
-  database: "OfficeTrivia",  
+  database: "officetrivia",  
   password: "",  
   hostname: "localhost",  
   port: 5432,  
@@ -67,9 +67,9 @@ https://stackoverflow.com/questions/28253681/you-need-to-install-postgresql-serv
 
 import psycopg2
 
-connection = psycopg2.connect(user = "deno", password = 'PASSWORD', host = "127.0.0.1", port = "5432", database = "officetrivia")
-cursor = connection.cursor()
-cursor.execute('SELECT * FROM questions;')
+connection = psycopg2.connect(user = "deno", password = 'PASSWORD', host = "127.0.0.1", port = "5432", database = "officetrivia")  
+cursor = connection.cursor()  
+cursor.execute('SELECT * FROM questions;')  
 
 cursor.fetchall()
 
