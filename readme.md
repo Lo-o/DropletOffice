@@ -3,17 +3,8 @@ Run 'denon start'
 Also possible to use 'deno run --allow-env --allow-net server.ts'
 
 
-## Config.ts file
-create a config.ts file with the following contents:
-const dbCreds = {  
-  user: "FILL IN (deno/officeadmin)",  
-  database: "officetrivia",  
-  password: "",  
-  hostname: "localhost",  
-  port: 5432,  
-};  
-
-export { dbCreds };
+## credentials json
+Fill in the credentials json first to get a working link with the postgres database 
 
 
 
