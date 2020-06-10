@@ -76,3 +76,7 @@ connection.close()
 
 ## New questions form 
 Based on https://github.com/bradtraversy/vanillawebprojects
+
+docker/nginx
+https://www.youtube.com/watch?v=yQ_3huavJi8
+https://www.youtube.com/watch?v=HJ9bECmuwKo

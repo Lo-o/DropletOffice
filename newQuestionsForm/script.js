@@ -51,22 +51,15 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-function POSTdata(url = "http://178.128.254.113:5566/api/v1/questions") {
-  xhr = new XMLHttpRequest();
-  var url = url;
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/json");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      var json = JSON.parse(xhr.responseText);
-      console.log(json.email + ", " + json.name);
-    }
-  };
-  var data = JSON.stringify(
-    { "email": "tomb@raider.com", "name": "LaraCroft" },
-  );
-  xhr.send(data);
-}
+// fields = inputJSON()
+// jQuery.ajax({
+//   type: 'POST',
+//   url: 'http://178.128.254.113:5566/api/v1/questions',
+//   data: fields,
+//   success: function(data) { alert('data: ' + data); },
+//   contentType: "application/json",
+//   dataType: 'json'
+// });
 
 // Event listeners
 form.addEventListener("submit", function (e) {
