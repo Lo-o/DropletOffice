@@ -1,37 +1,44 @@
-const form = document.getElementById('form');
-const username = document.getElementById('username');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const form = document.getElementById("form");
+const question = document.getElementById("question");
+const option1 = document.getElementById("option1");
+const option2 = document.getElementById("option2");
+const option3 = document.getElementById("option3");
+const option4 = document.getElementById("option4");
+const correct_answer = document.getElementById("correct_answer");
+
+formFields = [question, option1, option2, option3, option4, correct_answer];
+
+function inputJSON() {
+  formFields.forEach((element) => console.log(element));
+
+  let formInputs = {};
+
+  formFields.forEach((e) => {
+    formInputs[e.id] = e.value;
+  });
+
+  formInputs = JSON.stringify(formInputs);
+  return formInputs;
+}
 
 // Show input error message
 function showError(input, message) {
   const formControl = input.parentElement;
-  formControl.className = 'form-control error';
-  const small = formControl.querySelector('small');
+  formControl.className = "form-control error";
+  const small = formControl.querySelector("small");
   small.innerText = message;
 }
 
 // Show success outline
 function showSuccess(input) {
   const formControl = input.parentElement;
-  formControl.className = 'form-control success';
-}
-
-// Check email is valid
-function checkEmail(input) {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (re.test(input.value.trim())) {
-    showSuccess(input);
-  } else {
-    showError(input, 'Email is not valid');
-  }
+  formControl.className = "form-control success";
 }
 
 // Check required fields
 function checkRequired(inputArr) {
-  inputArr.forEach(function(input) {
-    if (input.value.trim() === '') {
+  inputArr.forEach(function (input) {
+    if (input.value.trim() === "") {
       showError(input, `${getFieldName(input)} is required`);
     } else {
       showSuccess(input);
@@ -39,42 +46,38 @@ function checkRequired(inputArr) {
   });
 }
 
-// Check input length
-function checkLength(input, min, max) {
-  if (input.value.length < min) {
-    showError(
-      input,
-      `${getFieldName(input)} must be at least ${min} characters`
-    );
-  } else if (input.value.length > max) {
-    showError(
-      input,
-      `${getFieldName(input)} must be less than ${max} characters`
-    );
-  } else {
-    showSuccess(input);
-  }
-}
-
-// Check passwords match
-function checkPasswordsMatch(input1, input2) {
-  if (input1.value !== input2.value) {
-    showError(input2, 'Passwords do not match');
-  }
-}
-
 // Get fieldname
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
+function POSTdata(url = "http://178.128.254.113:5566/api/v1/questions") {
+  xhr = new XMLHttpRequest();
+  var url = url;
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var json = JSON.parse(xhr.responseText);
+      console.log(json.email + ", " + json.name);
+    }
+  };
+  var data = JSON.stringify(
+    { "email": "tomb@raider.com", "name": "LaraCroft" },
+  );
+  xhr.send(data);
+}
+
 // Event listeners
-form.addEventListener('submit', function(e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  checkRequired([username, email, password, password2]);
-  checkLength(username, 3, 15);
-  checkLength(password, 6, 25);
-  checkEmail(email);
-  checkPasswordsMatch(password, password2);
+  console.log("pressed submit");
+  console.log(option1);
+
+  // checkRequired([username, email, password, password2]);
+  // checkLength(username, 3, 15);
+  // checkLength(password, 6, 25);
+  // checkEmail(email);
+  // checkPasswordsMatch(password, password2);
 });

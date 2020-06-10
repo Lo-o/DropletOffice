@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 :root {
   --success-color: #2ecc71;
@@ -9,9 +10,41 @@
   box-sizing: border-box;
 }
 
+
 body {
+  /* Location of the image */
+  background-image: url(img/Harvey.png);
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
   background-color: #f9fafb;
-  font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+  background-image: url(img/Harvey.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #f9fafb;
+
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Indie Flower', cursive;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,9 +54,10 @@ body {
 
 .container {
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 50px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   width: 400px;
+  border-image: url(./img/Harvey.png);
 }
 
 h2 {
@@ -36,8 +70,8 @@ h2 {
 }
 
 .form-control {
-  margin-bottom: 10px;
-  padding-bottom: 20px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
   position: relative;
 }
 
@@ -45,6 +79,17 @@ h2 {
   color: #777;
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control textarea {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 14px;
 }
 
 .form-control input {
@@ -53,6 +98,7 @@ h2 {
   display: block;
   width: 100%;
   padding: 10px;
+  font-family: 'Indie Flower', cursive;
   font-size: 14px;
 }
 
@@ -83,12 +129,14 @@ h2 {
 
 .form button {
   cursor: pointer;
-  background-color: #3498db;
+  background-color: #0c474d;
   border: 2px solid #3498db;
   border-radius: 4px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   display: block;
-  font-size: 16px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 22px;
+  font-weight: 700;
   padding: 10px;
   margin-top: 20px;
   width: 100%;
