@@ -72,3 +72,7 @@ cursor.execute("INSERT INTO questions (question, correct_answer, option1, option
 
 cursor.close()
 connection.close()
+
+
+## New questions form 
+Based on https://github.com/bradtraversy/vanillawebprojects
