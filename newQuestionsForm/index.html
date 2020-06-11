@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form Validator</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Form Validator</title>
-</head>
+  <body>
+    <div class="container">
+      <form id="form" class="form">
+        <h2>New office question form</h2>
 
-<body>
-  <div class="container">
-    <form id="form" class="form">
-      <h2>New office question form</h2>
+        <div class="form-control">
+          <label for="question">Question</label>
 
-      <div class="form-control">
-        <label for="question">Question</label>
+          <textarea
+            name="text"
+            id="question"
+            rows="5"
+            cols="30"
+            placeholder="Enter question"
+          ></textarea>
+          <!-- <input type="text" id="question" placeholder="Enter question" /> -->
+          <small>Error message</small>
+        </div>
 
-        <textarea name="text" id="question" rows="5" cols="30" placeholder="Enter question"></textarea>
-        <!-- <input type="text" id="question" placeholder="Enter question" /> -->
-        <small>Error message</small>
-      </div>
+        <div class="form-control">
+          <label for="option1">option1</label>
+          <input type="text" id="option1" placeholder="Enter option 1" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="option2">option2</label>
+          <input type="text" id="option2" placeholder="Enter option 2" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="option3">option3</label>
+          <input type="text" id="option3" placeholder="Enter option 3" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="option4">option4</label>
+          <input type="text" id="option4" placeholder="Enter option 4" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="correct_answer">correct_answer</label>
+          <input
+            type="text"
+            id="correct_answer"
+            placeholder="Enter correct answer"
+          />
+          <small>Error message</small>
+        </div>
 
-      <div class="form-control">
-        <label for="option1">option1</label>
-        <input type="text" id="option1" placeholder="Enter option 1" />
-        <small>Error message</small>
-      </div>
-      <div class="form-control">
-        <label for="option2">option2</label>
-        <input type="text" id="option2" placeholder="Enter option 2" />
-        <small>Error message</small>
-      </div>
-      <div class="form-control">
-        <label for="option3">option3</label>
-        <input type="text" id="option3" placeholder="Enter option 3" />
-        <small>Error message</small>
-      </div>
-      <div class="form-control">
-        <label for="option4">option4</label>
-        <input type="text" id="option4" placeholder="Enter option 4" />
-        <small>Error message</small>
-      </div>
-      <div class="form-control">
-        <label for="correct_answer">correct_answer</label>
-        <input type="text" id="correct_answer" placeholder="Enter correct answer" />
-        <small>Error message</small>
-      </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

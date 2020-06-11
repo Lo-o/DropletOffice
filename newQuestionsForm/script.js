@@ -8,69 +8,40 @@ const correct_answer = document.getElementById("correct_answer");
 
 formFields = [question, option1, option2, option3, option4, correct_answer];
 
-function inputJSON() {
+function sendJSON(API_url = "http://178.128.254.113:5566/api/v1/questions") {
   formFields.forEach((element) => console.log(element));
 
-  let formInputs = {};
+  let fields = {};
 
   formFields.forEach((e) => {
-    formInputs[e.id] = e.value;
+    fields[e.id] = e.value;
   });
 
-  formInputs = JSON.stringify(formInputs);
-  return formInputs;
-}
+  fields = JSON.stringify(fields);
 
-// Show input error message
-function showError(input, message) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control error";
-  const small = formControl.querySelector("small");
-  small.innerText = message;
-}
+  console.log("sending data");
+  console.log(fields);
 
-// Show success outline
-function showSuccess(input) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control success";
-}
-
-// Check required fields
-function checkRequired(inputArr) {
-  inputArr.forEach(function (input) {
-    if (input.value.trim() === "") {
-      showError(input, `${getFieldName(input)} is required`);
-    } else {
-      showSuccess(input);
-    }
+  // Send the data
+  jQuery.ajax({
+    type: "POST",
+    url: API_url,
+    data: fields,
+    success: function (data) {
+      alert("data: " + data);
+    },
+    contentType: "application/json",
+    dataType: "json",
   });
-}
 
-// Get fieldname
-function getFieldName(input) {
-  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+  return fields;
 }
-
-// fields = inputJSON()
-// jQuery.ajax({
-//   type: 'POST',
-//   url: 'http://178.128.254.113:5566/api/v1/questions',
-//   data: fields,
-//   success: function(data) { alert('data: ' + data); },
-//   contentType: "application/json",
-//   dataType: 'json'
-// });
 
 // Event listeners
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   console.log("pressed submit");
-  console.log(option1);
 
-  // checkRequired([username, email, password, password2]);
-  // checkLength(username, 3, 15);
-  // checkLength(password, 6, 25);
-  // checkEmail(email);
-  // checkPasswordsMatch(password, password2);
+  sendJSON();
 });
