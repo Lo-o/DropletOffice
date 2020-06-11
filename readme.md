@@ -83,8 +83,9 @@ Based on https://github.com/bradtraversy/vanillawebprojects
 - https://hub.docker.com/_/nginx
 
 **Run nginx docker questions form on droplet (port 9000)**  
-docker build -t nginx_questionsform .  
-docker run -d -p 9000:80 newQuestionsForm --> map port 80 in container to 9000 on machine detached
+(cd newQuestionsForm)  
+(sudo) docker build -t nginx_questionsform . --> always rebuild after changes to the website
+(sudo) docker run -d -p 9000:80 --restart unless-stopped newQuestionsForm --> map port 80 in container to 9000 on machine detached. start container on restart of droplet.
 
 <br>
 
