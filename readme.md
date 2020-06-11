@@ -5,7 +5,7 @@ Run 'denon start'
 
 Also possible to use 'deno run --allow-env --allow-net --allow-read server.ts'
 
-## credentials json
+## Credentials json
 
 First create a credentials.json to get a working link with the postgres database.
 Use the credentialsBoilerplate.json file for setup.
@@ -39,7 +39,7 @@ GRANT USAGE, SELECT ON SEQUENCE questions_id_seq TO deno;
 
 INSERT INTO questions (question, correct_answer, option1, option2, option3, option4) VALUES ('Who started the fire?', 'Ryan', 'Dwight', 'Pam', 'Kelly', 'Michael');
 
-## API
+## Questions database API access
 
 GET localhost:5566/api/v1/questions
 
@@ -57,20 +57,12 @@ POST localhost:5566/api/v1/questions
 
 ## PYTHON psycopg2 database test
 
-https://stackoverflow.com/questions/28253681/you-need-to-install-postgresql-server-dev-x-y-for-building-a-server-side-extensi
+TODO: Change .py to be a path join of python script file location to the credentials loacation
 
-import psycopg2
-
-connection = psycopg2.connect(user = "deno", password = 'PASSWORD', host = "127.0.0.1", port = "5432", database = "officetrivia")  
-cursor = connection.cursor()  
-cursor.execute('SELECT \* FROM questions;')
-
-cursor.fetchall()
-
-cursor.execute("INSERT INTO questions (question, correct_answer, option1, option2, option3, option4) VALUES ('Who started the fire?', 'Ryan', 'Dwight', 'Pam', 'Kelly', 'Michael');")
-
-cursor.close()
-connection.close()
+For ease of access, a .py script is included that drops all questions in the database into a .xlsx file.  
+Usage:  
+(cd ~)
+python3 ~/DropletOffice/Ops/manualSqlDump.py
 
 ## New questions form
 
@@ -84,7 +76,7 @@ Based on https://github.com/bradtraversy/vanillawebprojects
 
 **Run nginx docker questions form on droplet (port 9000)**  
 (cd newQuestionsForm)  
-(sudo) docker build -t nginx_questionsform . --> always rebuild after changes to the website
+(sudo) docker build -t nginx_questionsform . --> always rebuild after changes to the website  
 (sudo) docker run -d -p 9000:80 --restart unless-stopped newQuestionsForm --> map port 80 in container to 9000 on machine detached. start container on restart of droplet.
 
 <br>
