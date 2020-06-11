@@ -44,4 +44,5 @@ form.addEventListener("submit", function (e) {
   console.log("pressed submit");
 
   sendJSON();
+  form.reset();
 });
