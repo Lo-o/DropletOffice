@@ -76,7 +76,23 @@ connection.close()
 
 Based on https://github.com/bradtraversy/vanillawebprojects
 
-docker/nginx
+### docker/nginx
 
 - https://www.youtube.com/watch?v=yQ_3huavJi8
 - https://www.youtube.com/watch?v=HJ9bECmuwKo
+- https://hub.docker.com/_/nginx
+
+**Run nginx docker questions form on droplet (port 9000)**  
+docker build -t nginx_questionsform .  
+docker run -d -p 9000:80 newQuestionsForm --> map port 80 in container to 9000 on machine detached
+
+<br>
+
+**Other docker commands**  
+docker container help  
+docker container ls  
+docker container stop edf (first 3 fields)  
+docker container ls -a (show all, also non-running, containers  
+docker container run --publish 80:80 --detach --name webhost nginx (new nginx instance named webhost)  
+docker container logs webhost  
+docker container rm 18c edf --> delete containers 18c and edf
