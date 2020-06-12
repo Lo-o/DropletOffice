@@ -31,15 +31,16 @@ export function APIcall() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
-    console.log(items);
-    return (
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            {item.id} {item.question} {item.correct_answer}
-          </li>
-        ))}
-      </ul>
-    );
+    console.log(typeof items);
+
+    console.log(items.map((item) => <li>{item.id}</li>));
+    return items;
+    //   <ul class="flex-grow">
+    //     {items.map((item) => (
+    //       <li key={item.id}>
+    //         {item.id} {item.question} {item.correct_answer}
+    //       </li>
+    //     ))}
+    //   </ul>
   }
 }
