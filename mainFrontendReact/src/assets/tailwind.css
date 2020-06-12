@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+h1 {
+  @apply text-2xl pb-2;
+}
+
+.navigation {
+  @apply flex bg-green-400 p-4 text-white;
+}
