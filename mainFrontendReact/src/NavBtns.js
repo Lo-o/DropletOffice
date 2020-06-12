@@ -8,7 +8,7 @@ export function NavBtns(props) {
           Group play available
         </h1>
         <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8">
-          Test your knowledge, or add some competition
+          Just test your knowledge or add some competition
         </p>
 
         <button class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 shadow-lg w-64">

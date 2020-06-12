@@ -14,9 +14,7 @@ export function APIcall() {
       .then(
         (result) => {
           setIsLoaded(true);
-          console.log(result);
-          setItems(result.items);
-          console.log(items);
+          setItems(result.data);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -35,15 +33,13 @@ export function APIcall() {
   } else {
     console.log(items);
     return (
-      <div>Hello</div>
-
-      //   <ul>
-      //     {items.map((item) => (
-      //       <li key={item.name}>
-      //         {item.name} {item.price}
-      //       </li>
-      //     ))}
-      //   </ul>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.id} {item.question} {item.correct_answer}
+          </li>
+        ))}
+      </ul>
     );
   }
 }
