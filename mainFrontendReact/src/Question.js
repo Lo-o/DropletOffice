@@ -9,6 +9,8 @@ export class Questions extends React.Component {
       isLoaded: false,
       items: [],
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +35,11 @@ export class Questions extends React.Component {
       );
   }
 
+  handleClick(e) {
+    console.log("Handled click");
+    console.log(e);
+  }
+
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
@@ -55,12 +62,22 @@ export class Questions extends React.Component {
       console.log(options);
 
       return (
-        <div>
-          <h1>{question.question}</h1>
+        <div class="text-center px-3 lg:px-0">
+          <h1 class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8">
+            {question.question}
+          </h1>
 
           <div>
             {options.map((option) => (
-              <p>{question[option]}</p>
+              <p>
+                <button
+                  class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded py-3 my-2 shadow-lg w-64"
+                  id={option}
+                  onClick={() => this.handleClick(option)}
+                >
+                  {question[option]}
+                </button>
+              </p>
             ))}
           </div>
         </div>
@@ -78,32 +95,4 @@ function shuffleArray(array) {
     array[j] = temp;
   }
   return array;
-}
-
-export function RenderQuestion(props) {
-  let question = Questions().render();
-
-  return (
-    <div class="container mx-auto">
-      <div class="text-center px-3 lg:px-0">
-        <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8">
-          {question.id}
-        </p>
-
-        <button class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 shadow-lg w-64">
-          Single's people quiz
-        </button>
-        <button class="inline-block mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 shadow-lg w-64">
-          Group quiz
-        </button>
-
-        {/* <a
-          href="#"
-          class="inline-block mx-auto lg:mx-0 hover:underline bg-transparent text-gray-600 font-extrabold my-2 md:my-6 py-2 lg:py-4 px-8"
-        >
-          Group Quiz
-        </a> */}
-      </div>
-    </div>
-  );
 }
