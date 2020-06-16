@@ -90,14 +90,8 @@ const getQuestion = async ({
 };
 
 // @desc    Get random question
-// @route   GET /api/v1/questions/:id
-const getRandomQuestion = async ({
-  params,
-  response,
-}: {
-  params: { id: string };
-  response: any;
-}) => {
+// @route   GET /api/v1/randomQuestion
+const getRandomQuestion = async ({ response }: { response: any }) => {
   try {
     await client.connect();
 
@@ -105,27 +99,22 @@ const getRandomQuestion = async ({
       "SELECT * FROM questions WHERE id NOT IN (8, 9, 10)"
     );
 
-    if (result.rows.toString() === "") {
-      response.status = 404;
-      response.body = {
-        success: false,
-        msg: `No questions`,
-      };
-      return;
-    } else {
-      const question: any = new Object();
+    const questions = new Array();
 
-      result.rows.map((p) => {
-        result.rowDescription.columns.map((el, i) => {
-          question[el.name] = p[i];
-        });
+    result.rows.map((p) => {
+      let obj: any = new Object();
+
+      result.rowDescription.columns.map((el, i) => {
+        obj[el.name] = p[i];
       });
 
-      response.body = {
-        success: true,
-        data: question,
-      };
-    }
+      questions.push(obj);
+    });
+
+    response.body = {
+      success: true,
+      data: questions,
+    };
   } catch (err) {
     response.status = 500;
     response.body = {
