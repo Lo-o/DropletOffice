@@ -3,7 +3,7 @@ import { Header } from "./Header.js";
 import { NavBtns } from "./NavBtns.js";
 import { APIcall } from "./APIcall.js";
 import { Footer } from "./Footer.js";
-import { Question } from "./Question.js";
+import { Questions, RenderQuestion } from "./Question.js";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header name="Office" />
       {/* <NavBtns /> */}
       {/* <APIcall /> */}
-      <Question />
+      <Questions />
       <Footer />
     </div>
   );
