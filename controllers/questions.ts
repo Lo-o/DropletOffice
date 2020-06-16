@@ -111,10 +111,13 @@ const getRandomQuestion = async ({
     try {
       await client.connect();
 
-      const result = await client.query(
-        "SELECT * FROM questions WHERE id NOT IN ($1)",
-        excludeQuestions.join(", ")
-      );
+      let query = 'SELECT * FROM questions WHERE id NOT IN (${a.join(", ")})';
+      const result = await client.query(query);
+
+      // const result = await client.query(
+      //   "SELECT * FROM questions WHERE id NOT IN ($1)",
+      //   excludeQuestions.join(", ")
+      // );
 
       const questions = new Array();
 
