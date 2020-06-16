@@ -102,8 +102,7 @@ const getRandomQuestion = async ({
     await client.connect();
 
     const result = await client.query(
-      "SELECT * FROM questions WHERE id NOT IN (8, 9, 10)",
-      params.id
+      "SELECT * FROM questions WHERE id NOT IN (8, 9, 10)"
     );
 
     if (result.rows.toString() === "") {
