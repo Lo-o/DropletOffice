@@ -99,7 +99,7 @@ const getRandomQuestion = async ({
   response: any;
 }) => {
   const body = await request.body();
-  const question = body.value;
+  const excludeQuestions = body.value;
 
   if (!request.hasBody) {
     response.status = 400;
@@ -112,7 +112,8 @@ const getRandomQuestion = async ({
       await client.connect();
 
       const result = await client.query(
-        "SELECT * FROM questions WHERE id NOT IN (8, 9, 10)"
+        "SELECT * FROM questions WHERE id NOT IN ($1)",
+        excludeQuestions.join(", ")
       );
 
       const questions = new Array();
@@ -130,7 +131,7 @@ const getRandomQuestion = async ({
       response.status = 201;
       response.body = {
         success: true,
-        data: question,
+        data: questions,
       };
     } catch (err) {
       response.status = 500;
