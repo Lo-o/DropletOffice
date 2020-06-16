@@ -89,6 +89,55 @@ const getQuestion = async ({
   }
 };
 
+// @desc    Get random question
+// @route   GET /api/v1/questions/:id
+const getRandomQuestion = async ({
+  params,
+  response,
+}: {
+  params: { id: string };
+  response: any;
+}) => {
+  try {
+    await client.connect();
+
+    const result = await client.query(
+      "SELECT * FROM questions WHERE id NOT IN (8, 9, 10)",
+      params.id
+    );
+
+    if (result.rows.toString() === "") {
+      response.status = 404;
+      response.body = {
+        success: false,
+        msg: `No questions`,
+      };
+      return;
+    } else {
+      const question: any = new Object();
+
+      result.rows.map((p) => {
+        result.rowDescription.columns.map((el, i) => {
+          question[el.name] = p[i];
+        });
+      });
+
+      response.body = {
+        success: true,
+        data: question,
+      };
+    }
+  } catch (err) {
+    response.status = 500;
+    response.body = {
+      success: false,
+      msg: err.toString(),
+    };
+  } finally {
+    await client.end();
+  }
+};
+
 // @desc    Add question
 // @route   Post /api/v1/questions
 const addQuestion = async ({
@@ -138,4 +187,4 @@ const addQuestion = async ({
   }
 };
 
-export { getQuestions, getQuestion, addQuestion };
+export { getQuestions, getQuestion, addQuestion, getRandomQuestion };

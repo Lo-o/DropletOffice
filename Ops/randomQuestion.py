@@ -2,6 +2,9 @@ import psycopg2 as pg
 import pandas.io.sql as psql
 import json
 
+"""
+Probably best approach is to let random picking of a row done by deno/ backend, not postgres
+"""
 
 if __name__ == "__main__":
     with open("../credentials.json") as credentialsJSON:
@@ -23,5 +26,9 @@ if __name__ == "__main__":
 
     print("dataframe: \n")
     print(df)
+
+    print("\n")
+
+    # Can just pick a random row from the dataframe now
 
     print
