@@ -28,7 +28,7 @@ function sendJSON(API_url = "http://178.128.254.113:5566/api/v1/questions") {
     url: API_url,
     data: fields,
     success: function (data) {
-      alert("data: " + data);
+      alert(JSON.stringify(data));
     },
     contentType: "application/json",
     dataType: "json",
