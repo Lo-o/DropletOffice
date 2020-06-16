@@ -57,7 +57,7 @@ POST localhost:5566/api/v1/questions
 
 ## PYTHON psycopg2 database test
 
-TODO: Change .py to be a path join of python script file location to the credentials loacation
+TODO: Change .py to be a path join of python script file location to the credentials location
 
 For ease of access, a .py script is included that drops all questions in the database into a .xlsx file.  
 Usage:  
@@ -74,10 +74,10 @@ Based on https://github.com/bradtraversy/vanillawebprojects
 - https://www.youtube.com/watch?v=HJ9bECmuwKo
 - https://hub.docker.com/_/nginx
 
-### To (re-)run nginx docker questions form on droplet (port 9000):**  
+### To (re-)run nginx docker questions form on droplet (port 9000):  
 Always necessary after changes to code: rebuild image and re-deploy. 
 (**cd newQuestionsForm**)
-First check running processes (**sudo docker container ls -a**) and stop current deploy (**sudo docker container stop edf** - e.g. edf for first 3 fields identifier)
+First check running processes (**sudo docker container ls -a**) and stop current deploy (**sudo docker container stop edf** - e.g. edf for first 3 fields identifier here)
   
 <br>
 
