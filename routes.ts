@@ -12,7 +12,7 @@ const router = new Router();
 
 router
   .get("/api/v1/questions", oakCors(), getQuestions)
-  .get("/api/v1/randomQuestion", oakCors(), getRandomQuestion)
+  .post("/api/v1/randomQuestion", oakCors(), getRandomQuestion)
   .get("/api/v1/questions/:id", getQuestion)
   .post("/api/v1/questions", oakCors(), addQuestion);
 

@@ -89,40 +89,58 @@ const getQuestion = async ({
   }
 };
 
-// @desc    Get random question
-// @route   GET /api/v1/randomQuestion
-const getRandomQuestion = async ({ response }: { response: any }) => {
-  try {
-    await client.connect();
+// @desc    Add question
+// @route   Post /api/v1/questions
+const getRandomQuestion = async ({
+  request,
+  response,
+}: {
+  request: any;
+  response: any;
+}) => {
+  const body = await request.body();
+  const question = body.value;
 
-    const result = await client.query(
-      "SELECT * FROM questions WHERE id NOT IN (8, 9, 10)"
-    );
-
-    const questions = new Array();
-
-    result.rows.map((p) => {
-      let obj: any = new Object();
-
-      result.rowDescription.columns.map((el, i) => {
-        obj[el.name] = p[i];
-      });
-
-      questions.push(obj);
-    });
-
-    response.body = {
-      success: true,
-      data: questions,
-    };
-  } catch (err) {
-    response.status = 500;
+  if (!request.hasBody) {
+    response.status = 400;
     response.body = {
       success: false,
-      msg: err.toString(),
+      msg: "No data",
     };
-  } finally {
-    await client.end();
+  } else {
+    try {
+      await client.connect();
+
+      const result = await client.query(
+        "SELECT * FROM questions WHERE id NOT IN (8, 9, 10)"
+      );
+
+      const questions = new Array();
+
+      result.rows.map((p) => {
+        let obj: any = new Object();
+
+        result.rowDescription.columns.map((el, i) => {
+          obj[el.name] = p[i];
+        });
+
+        questions.push(obj);
+      });
+
+      response.status = 201;
+      response.body = {
+        success: true,
+        data: questions,
+      };
+    } catch (err) {
+      response.status = 500;
+      response.body = {
+        success: false,
+        msg: err.toString(),
+      };
+    } finally {
+      await client.end();
+    }
   }
 };
 
