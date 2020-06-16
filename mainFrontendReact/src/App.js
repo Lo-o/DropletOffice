@@ -10,7 +10,6 @@ function App() {
     <div class="bg-gray-400 flex flex-col min-h-screen">
       <Header name="Office" />
       {/* <NavBtns /> */}
-      {/* <APIcall /> */}
       <Questions />
       <Footer />
     </div>

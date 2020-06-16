@@ -2,16 +2,12 @@ import React from "react";
 
 export function Footer(props) {
   return (
-    <div>
-      <div class="flex-grow"></div>
-
-      <footer class="bg-blue w-full text-center border-t border-grey p-4 pin-b">
-        <p class="font-bold font-sans text-white bg-blue">
-          Copyright © Ryan Howard. Office trivia is a WUPHF dot com ™
-          initiative. For business investments please contact during any
-          business hour of Dunder Mifflin Scranton{" "}
-        </p>
-      </footer>
-    </div>
+    <footer class="absolute bottom-0 left-0 bg-gray-800 min-w-full">
+      <p class="text-sm font-sans text-white bg-blue text-center">
+        Copyright © Ryan Howard. Office trivia is a WUPHF dot com!, Inc.
+        initiative. For business investments please contact during any business
+        hour of Dunder Mifflin Scranton{" "}
+      </p>
+    </footer>
   );
 }

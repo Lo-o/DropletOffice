@@ -11,12 +11,15 @@ export function NavBtns(props) {
           Just test your knowledge or add some competition
         </p>
 
-        <button class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 shadow-lg w-64">
+        <button
+          class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 shadow-lg w-64"
+          onClick={props.moveToQuestions}
+        >
           Single's people quiz
         </button>
-        <button class="inline-block mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 shadow-lg w-64">
+        {/* <button class="inline-block mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 shadow-lg w-64">
           Group quiz
-        </button>
+        </button> */}
 
         {/* <a
           href="#"
