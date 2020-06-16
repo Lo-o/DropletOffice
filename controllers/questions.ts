@@ -130,7 +130,7 @@ const getRandomQuestion = async ({
       response.status = 201;
       response.body = {
         success: true,
-        data: questions,
+        data: question,
       };
     } catch (err) {
       response.status = 500;
