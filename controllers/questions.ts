@@ -116,11 +116,6 @@ const getRandomQuestion = async ({
       )})`;
       const result = await client.query(query);
 
-      // const result = await client.query(
-      //   "SELECT * FROM questions WHERE id NOT IN ($1)",
-      //   excludeQuestions.join(", ")
-      // );
-
       const questions = new Array();
 
       result.rows.map((p) => {
@@ -133,10 +128,13 @@ const getRandomQuestion = async ({
         questions.push(obj);
       });
 
+      const randomQuestion =
+        questions[Math.floor(Math.random() * questions.length)];
+
       response.status = 201;
       response.body = {
         success: true,
-        data: questions,
+        data: randomQuestion,
       };
     } catch (err) {
       response.status = 500;
