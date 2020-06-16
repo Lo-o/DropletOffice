@@ -74,8 +74,13 @@ Based on https://github.com/bradtraversy/vanillawebprojects
 - https://www.youtube.com/watch?v=HJ9bECmuwKo
 - https://hub.docker.com/_/nginx
 
-**Run nginx docker questions form on droplet (port 9000)**  
-(cd newQuestionsForm)  
+### To (re-)run nginx docker questions form on droplet (port 9000):**  
+Always necessary after changes to code: rebuild image and re-deploy. 
+(**cd newQuestionsForm**)
+First check running processes (**sudo docker container ls -a**) and stop current deploy (**sudo docker container stop edf** - e.g. edf for first 3 fields identifier)
+  
+<br>
+
 **(sudo) docker build -t nginx_questionsform .** --> always rebuild after changes to the website  
 **(sudo) docker run -d -p 9000:80 --restart unless-stopped nginx_questionsform** --> map port 80 in container to 9000 on machine detached. start container on restart of droplet.  
 **(sudo) sudo docker stop container 8f2**
