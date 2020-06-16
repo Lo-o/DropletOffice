@@ -7,8 +7,12 @@ const option4 = document.getElementById("option4");
 const correct_answer = document.getElementById("correct_answer");
 
 formFields = [question, option1, option2, option3, option4, correct_answer];
+let justTesting = "testing";
 
-function sendJSON(API_url = "http://178.128.254.113:5566/api/v1/questions") {
+let dropletURL = "http://178.128.254.113:5566/api/v1/questions";
+let localURL = "http://localhost:5566/api/v1/questions/";
+
+function sendJSON(API_url = dropletURL) {
   formFields.forEach((element) => console.log(element));
 
   let fields = {};
