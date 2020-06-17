@@ -7,7 +7,7 @@ const app = new Application();
 
 app.use(
   oakCors({
-    origin: "http://86.91.86.162:3000",
+    origin: "http://localhost:3000",
   }),
 );
 app.use(router.routes());
