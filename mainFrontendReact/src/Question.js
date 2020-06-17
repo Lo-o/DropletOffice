@@ -67,9 +67,9 @@ export class Questions extends React.Component {
       console.log(options);
 
       return (
-        <div class="text-center px-3 lg:px-0">
+        <div className="text-center px-3 lg:px-0">
           <h1
-            class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
+            className="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
           >
             {question.question}
           </h1>
@@ -78,7 +78,7 @@ export class Questions extends React.Component {
             {options.map((option) => (
               <p>
                 <button
-                  class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded py-3 my-2 shadow-lg w-64"
+                  className="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded py-3 my-2 shadow-lg w-64"
                   id={option}
                   onClick={() => this.handleClick(option)}
                 >

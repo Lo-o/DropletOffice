@@ -7,10 +7,10 @@ import { Questions, RenderQuestion } from "./Question.js";
 
 function App() {
   return (
-    <div class="bg-gray-400 flex flex-col min-h-screen">
+    <div className="bg-gray-400 flex flex-col min-h-screen">
       <Header name="Office" />
-      {/* <NavBtns /> */}
-      <Questions />
+      <NavBtns />
+      {/* <Questions /> */}
       <Footer />
     </div>
   );
