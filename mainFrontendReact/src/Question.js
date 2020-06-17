@@ -14,7 +14,11 @@ export class Questions extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://178.128.254.113:5566/api/v1/questions")
+    fetch("http://178.128.254.113:5566/api/v1/randomQuestion", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: [0, 8],
+    })
       .then((res) => res.json())
       .then(
         (result) => {
@@ -31,7 +35,7 @@ export class Questions extends React.Component {
             isLoaded: true,
             error,
           });
-        }
+        },
       );
   }
 
@@ -47,6 +51,7 @@ export class Questions extends React.Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
+      console.log(items);
       let question = items[0];
       const answer = question["correct_answer"];
       let options = [];
@@ -63,7 +68,9 @@ export class Questions extends React.Component {
 
       return (
         <div class="text-center px-3 lg:px-0">
-          <h1 class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8">
+          <h1
+            class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
+          >
             {question.question}
           </h1>
 

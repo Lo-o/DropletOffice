@@ -5,7 +5,11 @@ const port = Deno.env.get("PORT") || 5566;
 
 const app = new Application();
 
-app.use(oakCors()); // Enable CORS for All Routes
+app.use(
+  oakCors({
+    origin: "http://86.91.86.162:3000",
+  }),
+);
 app.use(router.routes());
 app.use(router.allowedMethods());
 
