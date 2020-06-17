@@ -1,9 +1,6 @@
+### Server startup:
 (vps) run **'deno run --allow-env --allow-net --allow-read server.ts'**  
 (development using denon) **'denon start'**
-
-Run 'denon start'
-
-Also possible to use 'deno run --allow-env --allow-net --allow-read server.ts'
 
 ## Credentials json
 
