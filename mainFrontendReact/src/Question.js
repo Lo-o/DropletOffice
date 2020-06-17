@@ -7,7 +7,7 @@ export class Questions extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: [],
+      question: [],
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -17,14 +17,14 @@ export class Questions extends React.Component {
     fetch("http://178.128.254.113:5566/api/v1/randomQuestion", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify([0]),
+      body: JSON.stringify([0, 6, 7, 8]),
     })
       .then((res) => res.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.data,
+            question: result.data,
           });
         },
         // Note: it's important to handle errors here
@@ -45,14 +45,14 @@ export class Questions extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, question } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      console.log(items);
-      let question = items[0];
+      console.log(question);
+
       const answer = question["correct_answer"];
       let options = [];
 
