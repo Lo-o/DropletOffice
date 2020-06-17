@@ -14,7 +14,7 @@ router
   .get("/api/v1/questions", oakCors(), getQuestions)
   .post(
     "/api/v1/randomQuestion",
-    oakCors({ origin: "http://localhost:3000/" }),
+    oakCors({ origin: "http://localhost:3000" }),
     getRandomQuestion,
   )
   .get("/api/v1/questions/:id", getQuestion)
