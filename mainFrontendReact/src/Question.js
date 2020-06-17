@@ -17,7 +17,7 @@ export class Questions extends React.Component {
     fetch("http://178.128.254.113:5566/api/v1/randomQuestion", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: [0, 8],
+      body: JSON.stringify([0]),
     })
       .then((res) => res.json())
       .then(

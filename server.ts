@@ -6,9 +6,7 @@ const port = Deno.env.get("PORT") || 5566;
 const app = new Application();
 
 app.use(
-  oakCors({
-    origin: "http://localhost:3000/",
-  }),
+  oakCors(),
 );
 app.use(router.routes());
 // app.use(router.allowedMethods());
