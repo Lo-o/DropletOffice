@@ -109,7 +109,7 @@ export class Question extends React.Component {
 
           <div>
             {options.map((option) => (
-              <p>
+              <p key={option}>
                 <button
                   className={btn_class_normal}
                   id={option}
