@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getQuestion } from "../APIcall.js";
+import ReactDOM from "react-dom";
 
 export class Question extends React.Component {
   constructor(props) {
@@ -7,7 +7,8 @@ export class Question extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      question: [],
+      question: null,
+      finishedQuestions: [0],
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -17,7 +18,7 @@ export class Question extends React.Component {
     fetch("http://178.128.254.113:5566/api/v1/randomQuestion", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify([0, 6, 7, 8]),
+      body: JSON.stringify(this.state.finishedQuestions),
     })
       .then((res) => res.json())
       .then(
@@ -39,9 +40,36 @@ export class Question extends React.Component {
       );
   }
 
-  handleClick(e) {
+  handleClick(chosenOption) {
+    let finishedQuestions = this.state.finishedQuestions;
+    const currentQuestionID = this.state.question["id"];
+    finishedQuestions.push(currentQuestionID);
+
     console.log("Handled click");
-    console.log(e);
+    console.log(chosenOption);
+
+    // this.setState({
+    //   finishedQuestions: finishedQuestions,
+    // });
+
+    console.log(finishedQuestions);
+    console.log(currentQuestionID);
+
+    let element = document.getElementById(chosenOption);
+    let originalBackgroundColor =
+      ReactDOM.findDOMNode(element).style.backgroundColor;
+    let feedbackColoring = (chosenOption === "correct_answer")
+      ? "green"
+      : "red";
+    ReactDOM.findDOMNode(element).style.backgroundColor = feedbackColoring;
+
+    console.log(finishedQuestions);
+
+    setTimeout(() => {
+      ReactDOM.findDOMNode(element).style.backgroundColor =
+        originalBackgroundColor;
+      this.componentDidMount();
+    }, 1300);
   }
 
   render() {
@@ -58,13 +86,18 @@ export class Question extends React.Component {
 
       let questionKeys = Object.keys(question);
       questionKeys.forEach((key) =>
-        key.includes("option") ? options.push(key) : console.log("Hello")
+        key.includes("option")
+          ? options.push(key)
+          : console.log("excluded: " + key)
       );
 
       options.push("correct_answer");
       options = shuffleArray(options);
 
-      console.log(options);
+      console.log("options: " + options);
+
+      let btn_class_normal =
+        "mx-auto lg:mx-0 hover:underline hover:bg-blue-500 focus:outline-none text-gray-800 font-extrabold rounded py-3 my-2 shadow-lg w-64 ";
 
       return (
         <div className="text-center px-3 lg:px-0">
@@ -78,7 +111,7 @@ export class Question extends React.Component {
             {options.map((option) => (
               <p>
                 <button
-                  className="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded py-3 my-2 shadow-lg w-64"
+                  className={btn_class_normal}
                   id={option}
                   onClick={() => this.handleClick(option)}
                 >

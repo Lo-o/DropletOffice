@@ -19,29 +19,16 @@ export class OfficeQuiz extends Component {
 
   render() {
     const { step } = this.state;
-    const { finishedQuestions } = this.state;
-
     let mainField;
-
     console.log(step);
 
     if (step == 1) {
       mainField = <NavBtns
         nextStep={this.nextStep}
-        finishedQuestions={finishedQuestions}
       />;
     } else {
-      mainField = <Question finishedQuestions={finishedQuestions} />;
+      mainField = <Question />;
     }
-
-    // switch (step) {
-    //   case 1:
-    //     mainField = <h1>Foo</h1>;
-    //   case 2:
-    //     mainField = <h1>Bar</h1>;
-    //   case 3:
-    //     mainField = <h1>baz</h1>;
-    // }
 
     return (
       <div>
