@@ -1,7 +1,7 @@
 import React from "react";
 
 export function Header(props) {
-  let bg = require("./img/triviaNight.png");
+  let bg = require("../img/triviaNight.png");
 
   return (
     <div className="static bg- w-full px-2">

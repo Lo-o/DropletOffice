@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { getQuestion } from "./APIcall.js";
+import { getQuestion } from "../APIcall.js";
 
-export class Questions extends React.Component {
+export class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
