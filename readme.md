@@ -1,5 +1,5 @@
 # General
-This repository is for a office trivia quiz website still under development. A current production version is available at http://178.128.254.113/ .  
+This repository is for an office trivia quiz website still under development. A current production version is available at http://178.128.254.113/ .  
 The main frontend uses React and TailwindCSS, served through NGINX in a docker container.  
 An additional 'new questions' site uses vanilla JS and is served in a similar way.  
 Calls are made to the deno/oak API which is in turn connected to a Postgres database.  
