@@ -1,5 +1,5 @@
 # Setup
-The main frontend (deploy) implementation technologies: React, tailwindcss, 
+The main frontend (deploy) implementation technologies: React, tailwindcss, nginx and docker
 
 ## Deploy
 The frontent is deployed using docker. Main steps followed: https://www.youtube.com/watch?v=Sm8GbC02MlE  
