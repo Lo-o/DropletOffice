@@ -6,7 +6,8 @@ The frontent is deployed using docker. Main steps followed: https://www.youtube.
 Note that the dockerfile has additional tailwindcss dependencies  
 
 **docker build -t trivia-frontend-nginx .**  
-**docker run -p 80:80 trivia-frontend-nginx**
+**sudo uf allow http** (=port 80)  
+**docker run -d -p 80:80 --restart unless-stopped trivia-frontend-nginx**
 
 
 
