@@ -69,7 +69,7 @@ export class Question extends React.Component {
       ReactDOM.findDOMNode(element).style.backgroundColor =
         originalBackgroundColor;
       this.componentDidMount();
-    }, 1300);
+    }, 1000);
   }
 
   render() {
@@ -87,7 +87,7 @@ export class Question extends React.Component {
       let questionKeys = Object.keys(question);
       questionKeys.forEach((key) =>
         key.includes("option")
-          ? options.push(key)
+          ? (question[key] ? options.push(key) : console.log("excluded " + key))
           : console.log("excluded: " + key)
       );
 
