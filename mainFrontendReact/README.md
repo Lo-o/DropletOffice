@@ -1,3 +1,20 @@
+# Setup
+The main frontend (deploy) implementation technologies: React, tailwindcss, 
+
+## Deploy
+The frontent is deployed using docker. Main steps followed: https://www.youtube.com/watch?v=Sm8GbC02MlE  
+Note that the dockerfile has additional tailwindcss dependencies  
+
+**docker build -t trivia-frontend-nginx .**  
+**docker run -p 80:80 trivia-frontend-nginx**
+
+
+
+
+
+<br>
+
+# Standard create-react-app documentation below
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
