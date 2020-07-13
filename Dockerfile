@@ -1,7 +1,5 @@
 FROM hayd/alpine-deno:1.0.1
 
-WORKDIR  /app
-
 USER deno
 
 ADD . .
